@@ -21,6 +21,10 @@ class User():
     def __init__(self, user_id):
         self.user_id = user_id
 
+
+    def __str__(self):
+        return self.domain
+
     
     def get_user_info(self):
         params = self.params
@@ -79,7 +83,8 @@ user_2.get_user_friends()
 
 print_common_friends(user_1, user_2)
 
-
+print(user_1)
+print(user_2)
 
 
 
