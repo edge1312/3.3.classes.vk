@@ -68,7 +68,7 @@ def print_common_friends(user_1, user_2):
         for friend in friends_list:         
             friend.get_user_info()      
             print(f'id{friend.id} {friend.first_name} {friend.last_name} ({friend.domain})')
-            time.sleep(1)               
+            time.sleep(0.4)               
 
 
 user_1_id = input_id('1-го')
