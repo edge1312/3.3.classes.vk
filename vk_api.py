@@ -56,18 +56,18 @@ def print_common_friends(user_1, user_2):
     if len(common_friends_set) == 0:
         print()
         print('Пользователи')
-        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} ({user_1.domain}) и id{user_2.id} {user_2.first_name} {user_2.last_name} ({user_2.domain})')
+        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} {user_1.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
         print('не имеют общих друзей')
     else:
         print()
         print('Для пользователей')
-        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} ({user_1.domain}) и id{user_2.id} {user_2.first_name} {user_2.last_name} ({user_2.domain})')
+        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} {user_1.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
         print('найдены общие друзья:')
         for friend in common_friends_set: 
             friends_list.append(User(friend)) 
         for friend in friends_list:         
             friend.get_user_info()      
-            print(f'id{friend.id} {friend.first_name} {friend.last_name} ({friend.domain})')
+            print(f'id{friend.id} {friend.first_name} {friend.last_name} {friend.domain}')
             time.sleep(0.4)               
 
 
