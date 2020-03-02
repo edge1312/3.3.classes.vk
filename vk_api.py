@@ -21,9 +21,30 @@ class User():
     def __init__(self, user_id):
         self.user_id = user_id
 
-
+    
     def __str__(self):
         return self.domain
+
+
+    def __and__(self, user_2):
+        common_friends_set = self.friends_set.intersection(user_2.friends_set)
+        friends_list = []
+        if len(common_friends_set) == 0:
+            print()
+            print('Пользователи')
+            print(f'id{self.id} {self.first_name} {self.last_name} {self.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
+            print('не имеют общих друзей')
+        else:
+            print()
+            print('Для пользователей')
+            print(f'id{self.id} {self.first_name} {self.last_name} {self.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
+            print('найдены общие друзья:')
+            for friend in common_friends_set: 
+                friends_list.append(User(friend)) 
+            for friend in friends_list:         
+                friend.get_user_info()      
+                print(f'id{friend.id} {friend.first_name} {friend.last_name} {friend.domain}')
+                time.sleep(0.4)
 
     
     def get_user_info(self):
@@ -50,26 +71,6 @@ def input_id(num):
     return user_id
 
 
-def print_common_friends(user_1, user_2):
-    common_friends_set = user_1.friends_set.intersection(user_2.friends_set)
-    friends_list = []
-    if len(common_friends_set) == 0:
-        print()
-        print('Пользователи')
-        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} {user_1.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
-        print('не имеют общих друзей')
-    else:
-        print()
-        print('Для пользователей')
-        print(f'id{user_1.id} {user_1.first_name} {user_1.last_name} {user_1.domain} и id{user_2.id} {user_2.first_name} {user_2.last_name} {user_2.domain}')
-        print('найдены общие друзья:')
-        for friend in common_friends_set: 
-            friends_list.append(User(friend)) 
-        for friend in friends_list:         
-            friend.get_user_info()      
-            print(f'id{friend.id} {friend.first_name} {friend.last_name} {friend.domain}')
-            time.sleep(0.4)               
-
 
 user_1_id = input_id('1-го')
 user_1 = User(user_1_id)
@@ -81,10 +82,13 @@ user_1.get_user_friends()
 user_2.get_user_info()
 user_2.get_user_friends()
 
-print_common_friends(user_1, user_2)
+
+user_1 & user_2
 
 print(user_1)
 print(user_2)
+
+
 
 
 
